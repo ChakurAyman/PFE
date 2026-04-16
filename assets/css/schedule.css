@@ -1,0 +1,365 @@
+:root {
+  color-scheme: dark;
+  --bg: #081120;
+  --surface: rgba(13, 23, 41, 0.94);
+  --surface-soft: rgba(20, 35, 60, 0.96);
+  --accent: #6c9cff;
+  --accent-soft: #5d85e8;
+  --text: #eef5ff;
+  --muted: #8ca4bd;
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 24px 80px rgba(1, 14, 38, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, rgba(108, 156, 255, 0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(44, 255, 206, 0.10), transparent 20%),
+    linear-gradient(180deg, #06111f 0%, #0c1b2f 55%, #081120 100%);
+  color: var(--text);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.schedule-page {
+  width: min(100%, 1160px);
+}
+
+.app-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(12, 23, 41, 0.96), rgba(7, 13, 22, 0.96));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  padding: 34px;
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--accent-soft);
+  font-size: 0.8rem;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.page-copy {
+  margin: 12px 0 0;
+  color: var(--muted);
+  max-width: 620px;
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.panel {
+  background: rgba(10, 18, 33, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 28px;
+}
+
+.panel-header {
+  margin-bottom: 22px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.panel-copy {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.panel-list-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.schedule-picker {
+  display: grid;
+  gap: 8px;
+  text-align: right;
+}
+
+.schedule-picker label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.schedule-picker input {
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 14px 16px;
+  font-size: 1rem;
+}
+
+.schedule-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.schedule-card {
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 20px;
+}
+
+.schedule-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.schedule-card strong {
+  font-size: 1.55rem;
+}
+
+.appointment-form {
+  display: grid;
+  gap: 18px;
+}
+
+.form-group {
+  display: grid;
+  gap: 10px;
+}
+
+.form-row {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-group label {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 16px 18px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(108, 156, 255, 0.8);
+  transform: translateY(-1px);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 16px 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-inline {
+  width: auto;
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, #5d85e8, #7aacf5);
+  box-shadow: 0 18px 40px rgba(93, 133, 232, 0.24);
+}
+
+.btn-secondary {
+  color: #fff;
+  background: rgba(108, 156, 255, 0.18);
+  border: 1px solid rgba(108, 156, 255, 0.35);
+}
+
+.btn-ghost {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.timetable {
+  display: grid;
+  gap: 14px;
+}
+
+.timetable-row,
+.timetable-header {
+  display: grid;
+  grid-template-columns: 1.3fr 2fr 1.6fr 2.4fr;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.timetable-header {
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.timetable-row.free {
+  opacity: 0.75;
+}
+
+.timetable-row.appointed {
+  background: rgba(93, 133, 232, 0.12);
+}
+
+.timetable-row span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.appointment-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.appointment-card {
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 22px;
+}
+
+.appointment-card h3 {
+  margin: 0 0 10px;
+}
+
+.appointment-card p {
+  margin: 6px 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.appointment-card-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.appointment-card button {
+  border: none;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.appointment-card button:hover {
+  transform: translateY(-1px);
+}
+
+.appointment-card button.delete {
+  background: rgba(255, 97, 112, 0.14);
+  color: #ffb3be;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .timetable-row,
+  .timetable-header {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-card {
+    padding: 24px;
+  }
+
+  .page-header {
+    align-items: stretch;
+  }
+}

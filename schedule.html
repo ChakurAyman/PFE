@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/schedule.css">
+    <title>Appointment Scheduler</title>
+</head>
+<body>
+    <main class="schedule-page">
+        <section class="app-card">
+            <div class="page-header">
+                <div>
+                    <p class="eyebrow">Doctor Appointments</p>
+                    <h1>Medical Schedule System</h1>
+                    <p class="page-copy">Book appointments for your patients and view the daily timetable in one place.</p>
+                </div>
+                <div class="header-actions">
+                    <a href="index.html" class="btn btn-secondary btn-inline">Back to patient manager</a>
+                </div>
+            </div>
+            <div class="dashboard-grid">
+                <aside class="panel panel-form">
+                    <div class="panel-header">
+                        <h2 id="scheduleFormTitle">New appointment</h2>
+                        <p class="panel-copy">Select a patient from the shared patient list and schedule a visit.</p>
+                    </div>
+                    <form id="appointmentForm" class="appointment-form">
+                        <div class="form-group">
+                            <label for="appointmentPatient">Patient</label>
+                            <select id="appointmentPatient" name="patient" required>
+                                <option value="" disabled selected>Select patient</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentDoctor">Doctor</label>
+                            <input id="appointmentDoctor" name="doctor" type="text" placeholder="Doctor name" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="appointmentDate">Date</label>
+                                <input id="appointmentDate" name="date" type="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime">Time</label>
+                                <input id="appointmentTime" name="time" type="time" min="08:00" max="18:00" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentReason">Reason</label>
+                            <textarea id="appointmentReason" name="reason" rows="4" placeholder="Appointment reason" required></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save appointment</button>
+                            <button type="button" id="cancelScheduleEditBtn" class="btn btn-ghost hidden">Cancel edit</button>
+                        </div>
+                    </form>
+                </aside>
+                <section class="panel panel-list">
+                    <div class="panel-header panel-list-header">
+                        <div>
+                            <h2>Appointment timetable</h2>
+                            <p class="panel-copy">Choose a date to view the doctor schedule and open appointments.</p>
+                        </div>
+                        <div class="schedule-picker">
+                            <label for="viewDate">View day</label>
+                            <input id="viewDate" type="date">
+                        </div>
+                    </div>
+                    <div class="schedule-summary">
+                        <div class="schedule-card">
+                            <span class="schedule-label">Total appointments</span>
+                            <strong id="appointmentCount">0</strong>
+                        </div>
+                        <div class="schedule-card">
+                            <span class="schedule-label">Selected day</span>
+                            <strong id="selectedDay">-</strong>
+                        </div>
+                    </div>
+                    <div id="timetable" class="timetable"></div>
+                    <div id="appointmentList" class="appointment-list"></div>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="assets/scripts/schedule.js"></script>
+</body>
+</html>

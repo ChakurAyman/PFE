@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Patient Folder Manager</title>
+</head>
+<body>
+    <main class="dashboard-page">
+        <section class="app-card">
+            <div class="page-header">
+                <div>
+                    <p class="eyebrow">Patient Records</p>
+                    <h1>Patient Folder CRUD System</h1>
+                    <p class="page-copy">Add, update, or remove patient folders with name, sex, age, medical history, and condition details.</p>
+                </div>
+                <div class="header-actions">
+                    <a href="schedule.html" class="btn btn-secondary btn-inline">Appointment schedule</a>
+                    <button id="clearAllBtn" class="btn btn-secondary btn-inline">Clear all folders</button>
+                </div>
+            </div>
+            <div class="dashboard-grid">
+                <aside class="panel panel-form">
+                    <div class="panel-header">
+                        <h2 id="formTitle">New patient folder</h2>
+                        <p class="panel-copy">Enter patient details below to create or update a folder.</p>
+                    </div>
+                    <form id="patientForm" class="patient-form">
+                        <div class="form-group">
+                            <label for="patientName">Name</label>
+                            <input id="patientName" name="name" type="text" placeholder="Patient name" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="patientSex">Sex</label>
+                                <select id="patientSex" name="sex" required>
+                                    <option value="" disabled selected>Select sex</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientAge">Age</label>
+                                <input id="patientAge" name="age" type="number" min="0" placeholder="Age" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientHistory">Medical history</label>
+                            <textarea id="patientHistory" name="history" rows="4" placeholder="Describe past medical details" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientCondition">Condition</label>
+                            <input id="patientCondition" name="condition" type="text" placeholder="Current condition" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save folder</button>
+                            <button type="button" id="cancelEditBtn" class="btn btn-ghost hidden">Cancel edit</button>
+                        </div>
+                    </form>
+                </aside>
+                <section class="panel panel-list">
+                    <div class="panel-header panel-list-header">
+                        <div>
+                            <h2>Patient folders</h2>
+                            <p class="panel-copy">Review and manage your saved patient records.</p>
+                        </div>
+                        <span id="patientCount" class="badge">0 folders</span>
+                    </div>
+                    <div id="patientList" class="patient-list">
+                        <div class="empty-state">
+                            <p>No patient folders yet.</p>
+                            <p>Use the form to add the first folder.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="assets/scripts/script.js"></script>
+</body>
+</html>
